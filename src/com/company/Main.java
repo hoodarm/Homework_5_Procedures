@@ -5,10 +5,10 @@ public class Main
 
     public static void main(String[] args)
     {
-        int [] IN = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
-        int [] OUT = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6};
-        REMOVE(IN, 2, OUT);
-        for(int el: OUT)
+        int[] IN = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1};
+        int[] OUT = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6};
+        REMOVE(IN, 4, OUT);
+        for (int el : OUT)
         {
             System.out.println(el);
         }
@@ -17,22 +17,19 @@ public class Main
     static void REMOVE(int[] IN, int X, int[] OUT)
     {
         int counter = 0;
-        for (int i = 0; i < IN.length; i++)
+        for (int i = 0, k = 0; i < 10; i++)
         {
-            if (i+counter<IN.length&&IN[i+counter] == X)
+            if (IN[i] == X)
+            {
                 counter++;
-            if (i+counter>=IN.length)
-            {
-                for(int k = 1; k<=counter;k++)
-                {
-                    OUT[IN.length-k]= 0;
-                }
-                break;
+                continue;
             }
-            if(IN[i+counter]!=X)
-            {
-                OUT[i] = IN[i + counter];
-            }
+            OUT[k++] = IN[i];
+        }
+
+        for (int i = 1; i <= counter; i++)
+        {
+            OUT[10 - i] = 0;
         }
     }
 }
